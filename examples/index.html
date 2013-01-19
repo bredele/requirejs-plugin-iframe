@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>RequireJS iframe plugin</title>
+        <style type="text/css">
+            button {
+                background:green;
+            }
+            #red {
+                color:red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Iframe plugin</h1>
+            <p>This plugin allows you to load unsafe content into an iframe. Set the policy config to script-src 'none' to forbid unsafe-inline scripts.</p>
+            <p>Coming soon: post-message machanisme between sandbox and sandboxed JavaScript.</p>
+        </div>
+        <script src="../lib/require.js"></script>
+        <script>
+            require.config({
+                config : {
+                    iframe : {
+                        policy : "script-src 'unsafe-inline';default-src 'self'"
+                    }
+                },
+                paths : {
+                    text : '../lib/text', //text is required
+                    iframe : '../iframe' //alias to plugin
+                }
+            });
+
+
+            require(['iframe!../examples/iframe.html'], function(iframe){
+                iframe.place(document.body);
+            });
+        </script>
+    </body>
+</html>
