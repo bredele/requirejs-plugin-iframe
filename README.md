@@ -65,9 +65,8 @@ Example build settings:
     	}
     },
     paths : {
-        mdown : 'lib/requirejs/mdown',
-        text : 'lib/requirejs/text',
-        markdownConverter : 'lib/Markdown.Converter'
+        iframe : 'lib/requirejs-plugin-iframe/iframe',
+        text : 'lib/requirejs-plugin-iframe/text',
     },
 })
 ```
